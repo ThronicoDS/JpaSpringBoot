@@ -3,6 +3,7 @@ package io.github.RodrigoKing.libraryapi.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -33,7 +34,7 @@ public class Livro {
     private GeneroLivro genero;
 
     @Column(name = "preco",precision = 18,scale = 2 ,nullable = false)
-    private double preco;
+    private BigDecimal preco;
     // private BigDecimal e melhor para trabalhar quando for usar valor monetario
 
     @ManyToOne
