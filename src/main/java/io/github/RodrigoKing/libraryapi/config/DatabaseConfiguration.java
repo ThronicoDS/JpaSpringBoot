@@ -18,7 +18,7 @@ public class DatabaseConfiguration {
     String username;
     @Value("${spring.datasource.password}")
     String password;
-    @Value("${spring.datasource.driver-class-name}")
+    @Value("${spring.datasource.jdbcDriver}")
     String driver;
 
 //    @Bean
@@ -47,7 +47,7 @@ public class DatabaseConfiguration {
         config.setMaxLifetime(600000); // 600 mil ms (10 minutos)
         config.setConnectionTimeout(100000); // timeout para conseguir uma conexão
         config.setConnectionTestQuery("select 1"); // query de teste
-
+        System.out.println("Teste da query "+ config.getConnectionTestQuery());
         return new HikariDataSource(config);
     }
 }
