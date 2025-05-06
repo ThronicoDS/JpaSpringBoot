@@ -10,7 +10,9 @@ import java.util.UUID;
 @Entity
 @Table(name = "livro", schema = "public")
 @Data
-
+@Getter
+@Setter
+@ToString
 //@NoArgsConstructor
 @AllArgsConstructor
 public class Livro {
@@ -40,5 +42,7 @@ public class Livro {
     @ManyToOne
     @JoinColumn(name = "id_autor")
     private Autor autor;
+
+
 
 }
