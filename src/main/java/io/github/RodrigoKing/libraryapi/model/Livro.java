@@ -43,6 +43,76 @@ public class Livro {
     @JoinColumn(name = "id_autor")
     private Autor autor;
 
+    public Livro() {
 
+    }
 
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getCodigo_livro() {
+        return codigo_livro;
+    }
+
+    public void setCodigo_livro(String codigo_livro) {
+        this.codigo_livro = codigo_livro;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public LocalDate getDataPublic() {
+        return dataPublic;
+    }
+
+    public void setDataPublic(LocalDate dataPublic) {
+        this.dataPublic = dataPublic;
+    }
+
+    public GeneroLivro getGenero() {
+        return genero;
+    }
+
+    public void setGenero(GeneroLivro genero) {
+        this.genero = genero;
+    }
+
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
+    public void setPreco(BigDecimal preco) {
+        this.preco = preco;
+    }
+
+    public Autor getAutor() {
+        return autor;
+    }
+
+    public void setAutor(Autor autor) {
+        this.autor = autor;
+    }
+
+//    @Override
+//    public String toString() {
+//        return "Livro{" +
+//                "id=" + id +
+//                ", codigo_livro='" + codigo_livro + '\'' +
+//                ", titulo='" + titulo + '\'' +
+//                ", dataPublic=" + dataPublic +
+//                ", genero=" + genero +
+//                ", preco=" + preco +
+//                ", autor=" + autor +
+//                '}';
+//    }
 }

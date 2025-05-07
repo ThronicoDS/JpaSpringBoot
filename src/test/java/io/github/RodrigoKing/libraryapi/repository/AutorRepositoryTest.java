@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -17,9 +18,9 @@ public class AutorRepositoryTest {
     @Test
     public void saveTest(){
         Autor autor = new Autor();
-        autor.setName("João Ribeiro");
+        autor.setName("João Gomes Luiz Pereira");
         autor.setNacionalidade("Brasileiro");
-        autor.setDataNasc(LocalDate.of(1969,10,27));
+        autor.setDataNasc(LocalDate.of(1969,11,7));
 
         var autorSalvo = repository.save(autor);
         System.out.println("Autor salvo com sucesso: " + autorSalvo);
@@ -43,4 +44,39 @@ public class AutorRepositoryTest {
        }
 
     }
+
+    @Test
+    public void listTest() {
+        List<Autor> lista  = repository.findAll();
+        lista.forEach(System.out::println);
+    }
+
+    @Test
+    public void countTest(){
+        System.out.println("Contagem de autores: " + repository.count());
+
+    }
+
+    @Test
+    public void deletePorIdTest(){
+        var id = UUID.fromString("b89b6e04-d055-4b82-a69c-96c8ecdbed42");
+
+        Optional<Autor> possivelDeleteAutor = repository.findById(id);
+
+        if(possivelDeleteAutor.isPresent()){
+            Autor deleteAutor = possivelDeleteAutor.get();
+            repository.deleteById(deleteAutor.getId());
+            System.out.println("Autor deletado com sucesso!!");
+        }else{
+            System.out.println("Autor ja foi deletado ou não existe em nossa base de dados!!");
+        }
+    }
+
+    @Test
+    public void pesquisa(){
+        var id = UUID.fromString("");
+
+
+    }
+
 }
