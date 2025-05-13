@@ -47,6 +47,9 @@ public class Livro {
 
     }
 
+    public Livro(String uuid, String caminhosDoVento, String s, BigDecimal bigDecimal, GeneroLivro generoLivro, LocalDate of) {
+    }
+
     public UUID getId() {
         return id;
     }

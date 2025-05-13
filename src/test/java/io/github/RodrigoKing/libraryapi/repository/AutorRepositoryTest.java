@@ -18,9 +18,9 @@ public class AutorRepositoryTest {
     @Test
     public void saveTest(){
         Autor autor = new Autor();
-        autor.setName("João Gomes Luiz Pereira");
-        autor.setNacionalidade("Brasileiro");
-        autor.setDataNasc(LocalDate.of(1969,11,7));
+        autor.setName("Leandro Fernadez Basco");
+        autor.setNacionalidade("Portugues");
+        autor.setDataNasc(LocalDate.of(1992,6,4));
 
         var autorSalvo = repository.save(autor);
         System.out.println("Autor salvo com sucesso: " + autorSalvo);
@@ -73,10 +73,22 @@ public class AutorRepositoryTest {
     }
 
     @Test
-    public void pesquisa(){
-        var id = UUID.fromString("");
+    public void searchTest(){
+        var id = UUID.fromString("dd9f9a44-17ac-42b3-9157-361e245afeff");
+        Optional<Autor> possivelAutor = repository.findById(id);
 
-
+        if(possivelAutor.isPresent()){
+            Autor searchAutor = possivelAutor.get();
+            System.out.println("Dados do autor pesquisado");
+            System.out.println(
+                    "Id: " +  searchAutor.getId() +  ", "
+                            + "Nome: " +  searchAutor.getName() + ", "
+                            + "data de nascimento: " + searchAutor.getDataNasc() + ", "
+                            + "nacionalidade: " + searchAutor.getNacionalidade()
+                    );
+        }else{
+            System.out.println("Não encontramos os dados desse autor");
+        }
     }
 
 }
